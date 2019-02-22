@@ -1,5 +1,8 @@
+This repository is a Fork of https://github.com/kite1988/dblp-parser.
+
 
 # DBLP XML Parser
+
 This is a tool to parse dblp.xml (http://dblp.uni-trier.de/xml/) and store inproceedings into MySQL database.
 
 To be specific, four key information, namely **author**, **conference**, **paper**, and **citation** under **\<inproceedings\>** will be extracted and stored in MySQL database as four tables. Please see [dblp.sql](https://github.com/kite1988/dblp-parser/blob/master/dblp.sql) for the database schema.
