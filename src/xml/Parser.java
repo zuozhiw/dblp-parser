@@ -252,8 +252,11 @@ public class Parser {
 
 	public static void main(String[] args) throws SQLException,
 			ClassNotFoundException {
+	    
+	    String xmlPath = "dblp.xml";
+	    
 		Long start = System.currentTimeMillis();
-		Parser p = new Parser(args[0]);
+		Parser p = new Parser(xmlPath);
 		Long end = System.currentTimeMillis();
 		System.out.println("Used: " + (end - start) / 1000 + " seconds");
 	}
