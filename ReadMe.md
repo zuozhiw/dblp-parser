@@ -11,6 +11,9 @@ The initial code was written by me in early 2010 for my undergraduate thesis. Wi
 
 
 ## How to use
+
+0. Download this git repository.
+
 1. Download **dblp.xml** and **dblp.dtd** from http://dblp.uni-trier.de/xml/, and save them at the same folder as this project.
 
 
