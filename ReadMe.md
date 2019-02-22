@@ -11,7 +11,7 @@ The initial code was written by me in early 2010 for my undergraduate thesis. Wi
 
 
 ## How to use
-1. Download **dblp.xml** and **dblp.dtd** from http://dblp.uni-trier.de/xml/, and save them at the same folder.
+1. Download **dblp.xml** and **dblp.dtd** from http://dblp.uni-trier.de/xml/, and save them at the same folder as this project.
 
 
 2. Restore the database with MySQL dump file (dblp.sql)
@@ -28,30 +28,29 @@ The initial code was written by me in early 2010 for my undergraduate thesis. Wi
 3. Configure database connection
 
   Please change dbUrl, user, password in [db/DBConnection.java](https://github.com/kite1988/dblp-parser/blob/master/src/db/DBConnection.java) according to your own database setting.
+  
+  Change the dblp.xml path in main function in Parser.java.
 
 
-4. Run the parser
+4. Run the parser ----(Updated for this Fork)----
 
   * Using Eclipse
-
-    You need to add mysql-connector-java-6.0-bin.jar to project build path. 
-    See this [post](http://www.wikihow.com/Add-JARs-to-Project-Build-Paths-in-Eclipse-(Java)) on how to do this.
-
-    And then run Parser.java with 
-    * program argument: the path of dblp.xml
+  
+    Import -> Maven -> Existing Maven Project.
+    
+    Run Parser.java with 
     * VM arguemnts: -Xmx1G -DentityExpansionLimit=2500000
-
-    See this [post](http://www.cs.colostate.edu/helpdocs/eclipseCommLineArgs.html) if you are not sure how to specify arguments in Eclipse.
 
 
   * Using command line
+  
+  You need to install Maven first.
+  
+  ```
+  mvn clean install
+  mvn exec:java -q -Dexec.mainClass="xml.Parser" -DentityExpansionLimit=2500000
+  ```
 
-    Similarly, you need to add mysql-connector-java-6.0-bin.jar to the classpath, and set program and VM arguments. The command will be something like:
-   ```
-    mkdir bin
-    javac -cp lib/mysql-connector-java-6.0-bin.jar -d bin src/db/DBConnection.java src/xml/* 
-    java -cp lib/mysql-connector-java-6.0-bin.jar:bin -DentityExpansionLimit=2500000 xml.Parser [path_of_dblp.xml]
-   ```
 
 **All done!** The program will run for a while. It takes 885 seconds to parse dblp-2016.xml on my latptop.
 
